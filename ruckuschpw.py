@@ -23,34 +23,42 @@ PW=''.join(["{}".format(randint(0, 9)) for num in range(0, n)]) #generates a ran
 
 PWSTR=("open wpa2 passphrase " + str(PW) + " algorithm AES") # command to be passed to the zonedirector
 
+
+#Varibles for use in logging into and controlling the zonedirector
+Target=str("<Target Device IP>")
+username=str("<username of zonedirector")
+password=str("<password of zonedirector>")
+WLAN=str('"<Name of SSID>"')
+Command=("open wpa2 passphrase " + str(PW) + " algorithm AES")
+
 #logs into the Zonedirector and changes the password of the SSID to the random number generated above
 print("logging into the zonedirector")
-child = pexpect.spawn ("ssh <IP address of target>")
+child = pexpect.spawn ("ssh "+Target)
 child.expect ('Please login:') 
-child.sendline ('<Username>') 
+child.sendline (username) 
 child.expect ('Password:') 
-child.sendline ('<Password>') 
+child.sendline (password) 
+#child.interact() #uncomment this is you want to pass the ssh connection through to your CLI
 child.expect ('ruckus>')
 child.sendline('enable')
-child.expect ('ruckus#')
+child.expect ('#')
 child.sendline('config')
 child.expect('#')
-child.sendline('wlan "<SSID>"')
+child.sendline("wlan "+WLAN)
 child.expect('#')
-child.sendline(PWSTR)
-child.expect('#')
-child.sendline('exit')
+child.sendline(Command)
 child.expect('#')
 child.sendline('exit')
-child.expect ('ruckus#')
+child.expect('#')
 child.sendline('exit')
-print (child.before)
-#child.interact() 
+child.expect ('#')
+child.sendline('exit')
+print (child.before) #prints the last child call
 child.expect(pexpect.EOF, timeout=20)
 
 
 
-#Emails the new password to the specified emails
+#Emails the new password to the specified email addresses
 print("Emailing password to specified emails")
 port = 465  #SSL Port Number
 sender_email = "<Email Account>" #email account that will be sending the messages
