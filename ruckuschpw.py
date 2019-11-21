@@ -64,13 +64,13 @@ child.expect(pexpect.EOF, timeout=20)
 print("Emailing password to specified emails")
 port = 465  #SSL Port Number
 sender_email = "<Email Account>" #email account that will be sending the messages
-password = str("<Email Password>") #Password of the email address sending the messages
+emailpassword = str("<Email Password>") #Password of the email address sending the messages
 receiver_email = "<recipent1>","<recipent2>","<recipent3>" #email addresses that will recieve the message
 message = ("Subject: Guest Wifi Password"+"\n"+"\n"+"\n"+ "The new password for the Guest Wifi netowrk is: "+ str(PW)+"\n"+"\n"+"\n"+"This Message was automatically genernated with Python." +"\n"+"\n"+"\n""Please see https://github.com/IncompleteString/ZD1100-Change-Wifi-Password/edit/master/ruckuschpw.py for source code")
 
 context = ssl.create_default_context()
 with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
-    server.login(sender_email, password)
+    server.login(sender_email, emailpassword)
     server.sendmail(sender_email, receiver_email, message)
 
 
