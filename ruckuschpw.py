@@ -28,7 +28,7 @@ PW=''.join(["{}".format(randint(0, 9)) for num in range(0, n)]) #generates a ran
 Target=str("<Target Device IP>")
 username=str("<username of zonedirector")
 password=str("<password of zonedirector>")
-WLAN=str('"<Name of SSID>"')
+WLAN=str('"<Name of SSID>"') #observe the double quotes, this is necessary if there is a space in your SSID
 Command=("open wpa2 passphrase " + str(PW) + " algorithm AES") # command to be passed to the zonedirector
 
 #logs into the Zonedirector and changes the password of the SSID to the random number generated above
