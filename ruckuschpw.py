@@ -10,7 +10,8 @@
 import sys
 import pexpect
 import string
-from random import randint
+from random 
+import randint
 import email
 import smtplib
 import ssl
