@@ -4,7 +4,7 @@
 # "THE BEER-WARE LICENSE" (Revision 42):
 # <Chris Brown> wrote this file.  As long as you retain this notice you
 # can do whatever you want with this stuff. If you think this stuff is worth is 
-# worth it, please buy me a beer in return.   Chris Brown
+# worth it, please buy me a beer in return. 
 # ----------------------------------------------------------------------------
 #
 import sys
