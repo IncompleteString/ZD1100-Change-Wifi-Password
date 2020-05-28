@@ -2,7 +2,7 @@
 #
 # ----------------------------------------------------------------------------
 # "THE BEER-WARE LICENSE" (Revision 42):
-# <chris@pagotechinc.com> wrote this file.  As long as you retain this notice you
+# <Chris Brown> wrote this file.  As long as you retain this notice you
 # can do whatever you want with this stuff. If you think this stuff is worth is 
 # worth it, please buy me a beer in return.   Chris Brown
 # ----------------------------------------------------------------------------
@@ -66,7 +66,7 @@ port = 465  #SSL Port Number
 sender_email = "<Email Account>" #email account that will be sending the messages
 emailpassword = str("<Email Password>") #Password of the email address sending the messages
 receiver_email = "<recipent1>","<recipent2>","<recipent3>" #email addresses that will recieve the message
-message = ("Subject: Guest Wifi Password"+"\n"+"\n"+"\n"+ "The new password for the Guest Wifi netowrk is: "+ str(PW)+"\n"+"\n"+"\n"+"This Message was automatically genernated with Python." +"\n"+"\n"+"\n""Please see https://github.com/IncompleteString/ZD1100-Change-Wifi-Password/edit/master/ruckuschpw.py for source code")
+message = ("Subject: Guest Wifi Password"+"\n"+"\n"+"\n"+ "The new password for the Guest Wifi netowrk is: "+ str(PW)+"\n"+"\n"+"\n"+"Place Holder." +"\n"+"\n"+"\n""Place Holder")
 
 context = ssl.create_default_context()
 with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
